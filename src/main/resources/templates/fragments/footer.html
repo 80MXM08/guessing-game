@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="footer" th:align="center" id="footer">
+	<a href="/">New Game</a> |
+	<a href="/leaderboard">Leaderboard</a>
+	<br><br>&copy; <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2024</span>
+	<a href="https://www.linkedin.com/in/arturs-grinbergs/">Artūrs Grinbergs</a>
+</div>
+</body>
+</html>

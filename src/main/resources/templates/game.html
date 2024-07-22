@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}"></head>
+<body>
+<div class="container">
+	<h1>Hi, <span th:text="${game.player.name}"></span></h1>
+	<div id="gameInput">
+		<form action="#" th:action="@{/game}" th:object="${guessForm}" method="post">
+			<span th:each="i : ${#numbers.sequence(0, game.secretNumber.size() - 1)}">
+				<input th:field="*{guess[__${i}__]}" type="text" oninput="moveToNextInput(this);" maxlength="1" required>
+			</span>
+			<br>
+			<input type="hidden" name="gameId" th:value="${game.id}">
+			<button type="submit" class="btn" id="btn_guess">Guess</button>
+		</form>
+		<label>Tries left</label>
+		<input type="text" id="triesLeft" th:value="${game.maxAttempts - game.guessResults.size()}" readonly/>
+		<div th:each="guessResult : ${game.guessResults}">
+			<input th:each="guess : ${guessResult.guess}" th:value="${guess}" type="text" maxlength="1" readonly>
+			M: <input th:value="${guessResult.matches}" type="text" maxlength="1" readonly>
+			P: <input th:value="${guessResult.partialMatches}" type="text" maxlength="1" readonly>
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

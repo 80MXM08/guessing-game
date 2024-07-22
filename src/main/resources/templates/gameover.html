@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}"></head>
+<body>
+<div class="container">
+	<div id="gameResult">
+	<h1>Game Over</h1>
+	<h1>Player: <span th:text="${game.player.name}"></span>&nbsp;
+		 <span id="gameOverMessage" th:text="${game.state == T(lv.grinbergs.game.model.State).VICTORY ? 'You win!' : 'You lose!'}"></span>
+	</h1>
+	<p>Secret number:
+		<input th:each="digit : ${game.secretNumber}" th:value="${digit}" type="text" maxlength="1" readonly>
+	</p>
+		<p><a href="/">New Game</a></p>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

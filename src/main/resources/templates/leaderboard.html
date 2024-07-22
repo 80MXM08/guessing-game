@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div class="container">
+	<h1>Leaderboard</h1>
+	<form action="#" th:action="@{/leaderboard}" method="post">
+		<label for="minGames">Minimum games played:</label>
+		<input type="number" id="minGames" name="minGames" required>
+		<button type="submit">Filter</button>
+	</form>
+	<table>
+		<tr>
+			<th>Rank</th>
+			<th>Name</th>
+			<th>Success Rate</th>
+			<th>Total Tries</th>
+		</tr>
+		<tr th:each="player, stat : ${players}">
+			<td th:text="${stat.index + 1}"></td>
+			<td th:text="${player.name}"></td>
+			<td th:text="${(player.correctGuesses / player.gamesPlayed) * 100 + '%'}"></td>
+			<td th:text="${player.gamesPlayed}"></td>
+		</tr>
+	</table>
+<div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

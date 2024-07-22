@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div class="container">
+	<div id="rules">
+		<h1>Game rules:</h1>
+		<ul>
+			<li>Program chooses a random secret number with 4 digits.</li>
+			<li>All digits in the secret number are different.</li>
+			<li>Player has 8 tries to guess the secret number.</li>
+			<li>After each guess program displays the message "M:m; P:p" where:
+				<ul>
+					<li>m - number of matching digits but not on the right places</li>
+					<li>p - number of matching digits on exact places</li>
+				</ul>
+			</li>
+			<li>Game ends after 8 tries or if the correct number is guessed.</li>
+		</ul>
+		<h2>Samples:</h2>
+		Secret:  <b>7046</b> Guess:   <b>8724</b> Message: <b>M:2; P:0</b><br>
+		Secret:  <b>7046</b> Guess:   <b>7842</b> Message: <b>M:0; P:2</b><br>
+		Secret:  <b>7046</b> Guess:   <b>7640</b> Message: <b>M:2; P:2</b><br>
+		<button class="open-button" onclick="closeFormAndOpenForm('rules', 'login')">Start</button>
+	</div>
+	<div id="login">
+		<form action="#" th:action="@{/login}" class="container-form" method="post">
+			<h1>Login</h1>
+			<input type="text" placeholder="Enter Username" name="name" required><br>
+			<button type="submit" class="btn">Login</button>
+			<button type="button" class="btn cancel" onclick="closeFormAndOpenForm('login', 'rules')">Close</button><br>
+			<a href="/oauth2/authorization/google"><img th:src="@{/images/google.png}"/></a>
+			<a href="/oauth2/authorization/facebook"><img th:src="@{/images/facebook.png}"/></a>
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

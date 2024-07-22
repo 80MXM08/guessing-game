@@ -1,0 +1,89 @@
+body {
+	font-family: Arial
+}
+
+ul {
+	display: inline-block;
+}
+
+ul ul {
+	display: block;
+}
+
+.container {
+	text-align: center;
+}
+
+.open-button {
+	background-color: #555;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+#login {
+	display: none;
+}
+
+.container-form {
+	padding: 10px;
+	background-color: white;
+}
+
+.container-form input {
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+}
+
+.container-form input:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+.btn {
+	background-color: #04AA6D;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10px;
+	opacity: 0.8;
+	width: auto;
+}
+
+.cancel {
+	background-color: red;
+}
+
+.btn:hover,
+.open-button:hover {
+	opacity: 1;
+}
+
+#gameInput input,
+#gameResult input {
+	width: 60px;
+	padding: 12px 20px;
+	margin: 10px 10px;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+	font-size: 25px;
+}
+
+#gameInput input:focus {
+	border: 3px solid blue;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
